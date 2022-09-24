@@ -90,11 +90,12 @@ namespace WebGentalPracticeInMVC5.Models
 
             _SqlConnection.Close();
         }
-        public void EditDataInDb(int id)
+        public void EditDataInDB(int id,StudentModel obj)
         {
-            
+            obj.Sname = Convert.ToString(obj.Sname);
+            obj.Sage = Convert.ToInt32(obj.Sage);
 
-            _cmd = new SqlCommand("update StudentInfo Sname='name', Sage=20 where Sid=id", _SqlConnection);
+            _cmd = new SqlCommand("update StudentInfo Set Sname='"+obj.Sname +"', Sage= '"+obj.Sage+"' where Sid="+id, _SqlConnection);
 
             _cmd.ExecuteNonQuery();
 

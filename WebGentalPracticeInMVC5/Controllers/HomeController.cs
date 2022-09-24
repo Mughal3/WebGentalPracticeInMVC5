@@ -35,22 +35,25 @@ namespace WebGentalPracticeInMVC5.Controllers
         [HttpPost]
         public ActionResult Create(StudentModel obj)
         {
-           
             stuServ.SetDataInDB(obj);
-            
             return RedirectToAction("List");
         }
-        
+        [HttpGet]
         public ActionResult Delete(int id)
         {
             stuServ.DeletDataFromDb(id);
             return RedirectToAction("List");
         }
         public ActionResult Edit(int id)
+        {            
+            return View(stuServ.GetStudentByID(id));
+        }
+        [HttpPost]
+        public ActionResult Edit(int id,StudentModel obj)
         {
-            
-            stuServ.EditDataInDb(id);
-            return View();
+
+            stuServ.EditDataInDB (id,obj);
+            return RedirectToAction("List");
         }
         private List<StudentModel> SetStudent()
         {
