@@ -14,10 +14,7 @@ namespace WebGentalPracticeInMVC5.Controllers
     {
         StudentServices stuServ = new StudentServices();
         // GET: Home
-        public ActionResult Index()
-        {
-            return View();
-        }
+
         public ActionResult List()
         {
            
@@ -55,35 +52,7 @@ namespace WebGentalPracticeInMVC5.Controllers
             stuServ.EditDataInDB (id,obj);
             return RedirectToAction("List");
         }
-        private List<StudentModel> SetStudent()
-        {
-            var studentlist = new List<StudentModel>();
-
-            StudentModel obj = new StudentModel()
-            {
-                Sid = 1,
-                Sname = "kamran",
-                Sage = 25
-            };
-            StudentModel obj1 = new StudentModel()
-            {
-                Sid = 2,
-                Sname = "Adul Rehman",
-                Sage = 25
-            };
-            StudentModel obj2 = new StudentModel()
-            {
-                Sid = 3,
-                Sname = "Asad Ali",
-                Sage = 25
-            };
-            studentlist.Add(obj);
-            studentlist.Add(obj1);
-            studentlist.Add(obj2);
-
-
-            return studentlist;
-        }
+      
 
 
         
